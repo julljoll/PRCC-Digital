@@ -17,14 +17,14 @@
 
 @media print {
   @page {
-    margin: 0;
+    margin: 1.5cm;
     size: legal;
   }
   body {
     margin: 0;
-    padding: 1.5cm;
+    padding: 0;
     background: white;
-    width: 215.9mm; /* Legal Width */
+    width: 100%;
   }
   .no-print {
     display: none !important;
