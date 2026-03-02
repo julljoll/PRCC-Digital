@@ -18,13 +18,13 @@
 @media print {
   @page {
     margin: 0;
-    size: auto;
+    size: legal;
   }
   body {
     margin: 0;
     padding: 1.5cm;
     background: white;
-    width: 210mm; /* A4 Width */
+    width: 215.9mm; /* Legal Width */
   }
   .no-print {
     display: none !important;
@@ -36,6 +36,7 @@
   section {
     break-inside: avoid;
     page-break-inside: avoid;
+    margin-bottom: 1rem;
   }
   /* Force grid columns in print */
   .grid {

@@ -50,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 print:p-0">
       {/* Main Document */}
       <motion.main 
         initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ export default function App() {
                   >
                     <span className="text-[10px] font-bold text-slate-400">{i + 1}.</span>
                     <span className="text-[11px] font-medium text-slate-700 flex-1">{motivo}</span>
-                    <div className={`w-4 h-4 border border-slate-300 rounded-sm flex items-center justify-center transition-colors ${motivos[motivo] ? 'bg-emerald-500 border-emerald-600' : 'bg-white'}`}>
+                    <div className={`w-4 h-4 border border-slate-300 rounded-sm flex items-center justify-center transition-colors print:border-slate-400 ${motivos[motivo] ? 'bg-emerald-500 border-emerald-600' : 'bg-white'}`}>
                       {motivos[motivo] && <Check size={10} className="text-white" />}
                     </div>
                   </div>
@@ -233,7 +233,7 @@ function InputField({ label, value, onChange }: { label: string, value: string, 
         type="text" 
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-white border border-slate-200 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all"
+        className="w-full bg-white border border-slate-200 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all print:border-slate-300 print:py-1"
       />
     </div>
   );
@@ -249,7 +249,7 @@ function ObtencionItem({ number, label, checked, onToggle }: { number: string, l
         <span className="text-xs font-bold text-slate-400">{number}.</span>
         <span className="text-xs font-bold text-slate-800 uppercase tracking-tight">{label}</span>
       </div>
-      <div className={`w-5 h-5 border border-slate-300 rounded-sm flex items-center justify-center transition-colors ${checked ? 'bg-emerald-500 border-emerald-600' : 'bg-slate-50'}`}>
+      <div className={`w-5 h-5 border border-slate-300 rounded-sm flex items-center justify-center transition-colors print:border-slate-400 ${checked ? 'bg-emerald-500 border-emerald-600' : 'bg-slate-50'}`}>
         {checked && <Check size={12} className="text-white" />}
       </div>
     </div>
@@ -258,7 +258,7 @@ function ObtencionItem({ number, label, checked, onToggle }: { number: string, l
 
 function FuncionarioCard({ title }: { title: string }) {
   return (
-    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid">
+    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid print:bg-white print:border-slate-300">
       <h4 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider border-b border-slate-200 pb-2">{title}</h4>
       <div className="space-y-3 mb-6">
         <div className="flex items-end gap-2">
@@ -299,7 +299,7 @@ function FuncionarioCard({ title }: { title: string }) {
 
 function TransferCard({ title }: { title: string }) {
   return (
-    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid">
+    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid print:bg-white print:border-slate-300">
       <h4 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider border-b border-slate-200 pb-2">{title}</h4>
       <div className="space-y-3 mb-6">
         {['a. Nombres y Apellidos', 'b. Organismo', 'c. Despacho', 'd. C.I./Cred', 'e. Fecha'].map(label => (
