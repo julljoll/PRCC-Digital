@@ -18,15 +18,39 @@
 @media print {
   @page {
     margin: 0;
+    size: auto;
   }
   body {
-    margin: 1.6cm;
+    margin: 0;
+    padding: 1.5cm;
     background: white;
+    width: 210mm; /* A4 Width */
   }
   .no-print {
-    display: none;
+    display: none !important;
   }
   .document-shadow {
-    box-shadow: none;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Force grid columns in print */
+  .grid {
+    display: grid !important;
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
 }

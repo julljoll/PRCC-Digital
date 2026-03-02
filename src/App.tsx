@@ -55,11 +55,11 @@ export default function App() {
       <motion.main 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-5xl mx-auto bg-white document-shadow rounded-sm overflow-hidden border border-slate-200"
+        className="max-w-5xl mx-auto bg-white document-shadow rounded-sm overflow-hidden border border-slate-200 print:max-w-none print:w-full print:border-slate-300"
       >
         {/* Header Section */}
-        <div className="bg-emerald-600 p-6 text-center border-b border-emerald-700">
-          <h2 className="text-white font-bold text-xl uppercase tracking-widest">
+        <div className="bg-emerald-600 p-4 md:p-6 text-center border-b border-emerald-700">
+          <h2 className="text-white font-bold text-lg md:text-xl uppercase tracking-widest">
             PLANILLA DE REGISTRO DE CADENA DE CUSTODIA (PRCC)
           </h2>
         </div>
@@ -258,7 +258,7 @@ function ObtencionItem({ number, label, checked, onToggle }: { number: string, l
 
 function FuncionarioCard({ title }: { title: string }) {
   return (
-    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid">
       <h4 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider border-b border-slate-200 pb-2">{title}</h4>
       <div className="space-y-3 mb-6">
         <div className="flex items-end gap-2">
@@ -299,7 +299,7 @@ function FuncionarioCard({ title }: { title: string }) {
 
 function TransferCard({ title }: { title: string }) {
   return (
-    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200 break-inside-avoid page-break-inside-avoid">
       <h4 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider border-b border-slate-200 pb-2">{title}</h4>
       <div className="space-y-3 mb-6">
         {['a. Nombres y Apellidos', 'b. Organismo', 'c. Despacho', 'd. C.I./Cred', 'e. Fecha'].map(label => (
