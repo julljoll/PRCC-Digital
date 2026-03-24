@@ -7,8 +7,7 @@
 
 @layer base {
   body {
-  @apply bg-slate-100 font-mono;
-  color: #181818;
+    @apply bg-slate-100 text-slate-900 font-mono;
   }
 }
 
