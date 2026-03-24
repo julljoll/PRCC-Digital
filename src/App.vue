@@ -53,17 +53,24 @@ const printDoc = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#0a0f1c] py-8 px-4 sm:px-6 lg:px-8 print:p-0 print:bg-white flex flex-col items-center gap-8 text-slate-300">
+  <div class="min-h-screen bg-[#0a0f1c] pt-0 pb-8 px-4 sm:px-6 lg:px-8 print:p-0 print:bg-white flex flex-col items-center gap-8 text-slate-300">
     
     <!-- PAGE 1 -->
-    <div class="w-full max-w-[600px] min-w-[320px] min-h-[33cm] py-[2cm] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:shadow-none print:border-none print:max-w-none print:w-full print:text-black print:p-0 print:m-0 print:break-after-page flex flex-col">
+    <div class="w-full max-w-[600px] min-w-[320px] min-h-[33cm] pt-0 pb-[2cm] bg-[#161b2a] shadow-2xl rounded-b-xl sm:rounded-xl overflow-hidden border border-slate-800/60 border-t-0 sm:border-t print:shadow-none print:border-none print:max-w-none print:w-full print:text-black print:p-0 print:m-0 print:break-after-page flex flex-col">
       
       <!-- Header Section -->
-      <div class="bg-[#080d1a] p-6 text-center border-b-4 border-emerald-500/30 print:bg-white print:border-b-2 print:border-black">
-        <h2 class="text-emerald-400 font-bold text-lg uppercase tracking-widest leading-tight print:text-black">
-          Planilla de Registro de Cadena de Custodia
-        </h2>
-        <p class="text-slate-400 text-xs mt-2 tracking-widest print:text-black">(PRCC)</p>
+      <div class="bg-[#080d1a] p-6 border-b-4 border-emerald-500/30 print:bg-white print:border-b-2 print:border-black flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-start">
+          <img src="/logo.png" alt="SHA256.US forensic laboratory" class="h-12 sm:h-14 object-contain print:h-12" />
+        </div>
+        <!-- Title -->
+        <div class="text-right">
+          <h2 class="text-emerald-400 font-bold text-sm sm:text-base uppercase tracking-widest leading-tight print:text-black">
+            Planilla de Registro<br/>de Cadena de Custodia
+          </h2>
+          <p class="text-slate-400 text-[10px] sm:text-xs mt-1 tracking-widest print:text-black">(PRCC)</p>
+        </div>
       </div>
 
       <!-- Section I: Datos Generales -->
@@ -307,9 +314,13 @@ const printDoc = () => {
         </button>
       </div>
 
-      <footer class="p-6 text-center no-print bg-[#0a0f1c] border-t border-slate-800/60">
-        <p class="text-slate-400 text-[10px] font-medium uppercase tracking-wider">
-          &copy; {{ new Date().getFullYear() }} PRCC Digital
+      <footer class="p-8 flex flex-col items-center justify-center gap-1.5 no-print bg-[#0a0f1c] border-t border-slate-800/60">
+        <div class="flex items-center gap-2">
+          <div class="w-1.5 h-1.5 bg-[#0fa968] rounded-full"></div>
+          <span class="text-slate-200 font-semibold tracking-tight text-sm">sha256.us</span>
+        </div>
+        <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
+          Laboratorio Informático Forense
         </p>
       </footer>
     </div>
