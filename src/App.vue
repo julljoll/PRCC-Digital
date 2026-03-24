@@ -53,9 +53,10 @@ const printDoc = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#0a0f1c] py-8 px-4 sm:px-6 lg:px-8 print:p-0 print:bg-white flex justify-center text-slate-300">
-    <!-- Email-like Container (Max 600px, Min 320px) -->
-    <div class="w-full max-w-[600px] min-w-[320px] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:shadow-none print:border-none print:max-w-none print:w-full print:text-black">
+  <div class="min-h-screen bg-[#0a0f1c] py-8 px-4 sm:px-6 lg:px-8 print:p-0 print:bg-white flex flex-col items-center gap-8 text-slate-300">
+    
+    <!-- PAGE 1 -->
+    <div class="w-full max-w-[600px] min-w-[320px] min-h-[33cm] py-[2cm] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:shadow-none print:border-none print:max-w-none print:w-full print:text-black print:p-0 print:m-0 print:break-after-page flex flex-col">
       
       <!-- Header Section -->
       <div class="bg-[#080d1a] p-6 text-center border-b-4 border-emerald-500/30 print:bg-white print:border-b-2 print:border-black">
@@ -132,7 +133,11 @@ const printDoc = () => {
           </div>
         </div>
       </section>
+    </div>
 
+    <!-- PAGE 2 -->
+    <div class="w-full max-w-[600px] min-w-[320px] min-h-[33cm] py-[2cm] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:shadow-none print:border-none print:max-w-none print:w-full print:text-black print:p-0 print:m-0 print:break-after-page flex flex-col">
+      
       <!-- Section III: Funcionario -->
       <section class="border-b border-slate-800/60 print:border-slate-300">
         <div class="bg-[#080d1a] px-6 py-3 print:bg-slate-100">
@@ -180,7 +185,11 @@ const printDoc = () => {
           </div>
         </div>
       </section>
+    </div>
 
+    <!-- PAGE 3 -->
+    <div class="w-full max-w-[600px] min-w-[320px] min-h-[33cm] py-[2cm] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:shadow-none print:border-none print:max-w-none print:w-full print:text-black print:p-0 print:m-0 print:break-after-page flex flex-col">
+      
       <!-- Section VI: Descripción -->
       <section class="border-b border-slate-800/60 print:border-slate-300">
         <div class="bg-[#080d1a] px-6 py-3 print:bg-slate-100">
@@ -276,9 +285,12 @@ const printDoc = () => {
           </div>
         </div>
       </section>
+    </div>
       
+    <!-- CONTROLS -->
+    <div class="w-full max-w-[600px] min-w-[320px] bg-[#161b2a] shadow-2xl rounded-xl overflow-hidden border border-slate-800/60 print:hidden flex flex-col">
       <!-- Action Buttons at the bottom -->
-      <div class="p-6 bg-[#080d1a] border-t border-slate-800/60 flex flex-col gap-3 no-print">
+      <div class="p-6 bg-[#080d1a] flex flex-col gap-3 no-print">
         <button 
           @click="printDoc"
           class="w-full flex justify-center items-center gap-2 px-6 py-3 bg-emerald-600 rounded-xl text-sm font-bold text-white hover:bg-emerald-500 transition-all shadow-sm active:scale-95"
@@ -303,3 +315,13 @@ const printDoc = () => {
     </div>
   </div>
 </template>
+
+<style>
+@media print {
+  @page {
+    size: legal;
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+  }
+}
+</style>
