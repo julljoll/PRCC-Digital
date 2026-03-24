@@ -62,7 +62,7 @@ const printDoc = () => {
       <div class="bg-[#080d1a] p-6 border-b-4 border-emerald-500/30 print:bg-white print:border-b-2 print:border-black flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-start">
-          <img src="/logo.png" alt="SHA256.US forensic laboratory" class="h-12 sm:h-14 object-contain print:h-12" />
+          <img src="https://ik.imagekit.io/p5pirzkod/sha256.us/Logo.svg" alt="SHA256.US forensic laboratory" class="h-12 sm:h-14 object-contain print:h-12" />
         </div>
         <!-- Title -->
         <div class="text-right">
