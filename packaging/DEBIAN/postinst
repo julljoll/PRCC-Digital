@@ -1,0 +1,21 @@
+#!/bin/bash
+# Script post-instalación para forense-android
+
+set -e
+
+echo "Configurando Sistema Forense Android..."
+
+# Crear directorio de datos del usuario
+mkdir -p /var/lib/forense-android/casos
+chmod 700 /var/lib/forense-android
+
+# Crear directorios de configuración
+mkdir -p /etc/forense-android
+mkdir -p /usr/share/forense-android
+
+echo "✅ Sistema Forense Android instalado correctamente."
+echo ""
+echo "Para iniciar la aplicación, ejecute:"
+echo "  forense-android"
+echo ""
+echo "O busque 'Sistema Forense Android' en el menú de aplicaciones."
