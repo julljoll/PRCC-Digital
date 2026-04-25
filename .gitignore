@@ -1,8 +1,50 @@
+```
+# Environment files
+.env
+.env.local
+.env.*
+
+# Dependencies
 node_modules/
-build/
+
+# Build artifacts
 dist/
-coverage/
-.DS_Store
+build/
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Logs
 *.log
-.env*
-!.env.example
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+```
