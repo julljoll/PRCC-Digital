@@ -1,0 +1,89 @@
+# LICENCIA DE CONSTRUCCIÓN COMUNITARIA - NO COMERCIAL
+
+## PRCC Digital - Planilla de Registro de Cadena de Custodia
+
+### Copyright (c) 2024 sha256.us - Laboratorio Informático Forense
+
+---
+
+## TÉRMINOS DE LA LICENCIA
+
+Esta obra está licenciada bajo la **Licencia de Construcción Comunitaria - No Comercial (CC-BY-NC-SA)** adaptada para software.
+
+### USTED PUEDE:
+
+✅ **COMPARTIR** - Copiar y redistribuir el material en cualquier medio o formato
+
+✅ **ADAPTAR** - Remezclar, transformar y construir a partir del material
+
+✅ **USO PERSONAL Y EDUCATIVO** - Utilizar este software para:
+   - Trabajo personal
+   - Estudios e investigación
+   - Proyectos educativos
+   - Organizaciones sin fines de lucro
+   - Instituciones gubernamentales y públicas
+
+### BAJO LAS SIGUIENTES CONDICIONES:
+
+🔹 **ATRIBUCIÓN** - Debe reconocer adecuadamente la autoría original, proporcionar un enlace a esta licencia e indicar si se han realizado cambios. Puede hacerlo de manera razonable, pero no de una manera que sugiera que el licenciante lo respalda a usted o su uso.
+
+🔹 **NO COMERCIAL** - **NO PUEDE** utilizar este material con propósitos comerciales. Queda estrictamente prohibido:
+   - Vender este software o sus derivados
+   - Cobrar por licencias de uso
+   - Incluir este código en productos comerciales
+   - Ofrecer servicios de pago basados en este software sin autorización expresa
+   - Distribuir versiones modificadas con fines de lucro
+
+🔹 **COMPARTIR IGUAL** - Si remezcla, transforma o crea a partir del material, deberá distribuir sus contribuciones bajo la misma licencia que el original.
+
+### RESTRICCIONES ADICIONALES PARA SOFTWARE:
+
+1. **PROHIBICIÓN DE VENTA**: Este código fuente no puede ser vendido, licenciado con cargo, ni incluido en paquetes de software comerciales sin autorización escrita del autor original.
+
+2. **LIBRE ACCESO**: Cualquier derivado de este software debe mantener el acceso libre y gratuito para usuarios finales.
+
+3. **MODIFICACIONES**: Puede modificar el código para uso propio o de su organización, pero las mejoras significativas deben ser compartidas con la comunidad bajo los mismos términos.
+
+4. **DISTRIBUCIÓN EN PAQUETES (.deb, .rpm, etc.)**: Puede empaquetar y distribuir este software en formatos de paquetes de Linux siempre que:
+   - Sea gratuito para el usuario final
+   - Mantenga esta licencia intacta
+   - Reconozca la autoría original
+   - No forme parte de una distribución comercial de pago
+
+5. **SERVICIOS PROFESIONALES**: Se permite cobrar por servicios de:
+   - Instalación y configuración
+   - Soporte técnico
+   - Capacitación y formación
+   - Personalización específica
+   
+   **PERO** el software en sí mismo debe permanecer gratuito.
+
+### EXENCIONES DE RESPONSABILIDAD:
+
+- Este software se proporciona "TAL CUAL", sin garantía de ningún tipo, expresa o implícita.
+- Los autores no se responsabilizan por daños o perjuicios derivados del uso de este software.
+- El usuario es responsable del uso adecuado conforme a la legislación vigente.
+
+### USO AUTORIZADO SIN RESTRICCIONES:
+
+✓ Instituciones educativas públicas y privadas (sin fines comerciales)
+✓ Organismos gubernamentales y estatales
+✓ Investigadores y estudiantes
+✓ Profesionales forenses en ejercicio
+✓ Organizaciones sin fines de lucro
+✓ Proyectos de código abierto comunitarios
+
+### CONTACTO PARA USOS COMERCIALES:
+
+Si requiere utilizar este software con fines comerciales, contacte al autor para obtener una licencia comercial separada.
+
+---
+
+**Para más información sobre esta licencia:**
+- Basada en Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+- Adaptada específicamente para distribución de software en paquetes Linux
+
+---
+
+*Desarrollado con ❤️ para la comunidad forense y educativa*
+*sha256.us - Laboratorio Informático Forense*
