@@ -9,6 +9,11 @@ Sistema digital para el registro y seguimiento de la cadena de custodia de evide
 ## 🚀 Características
 
 - **Interfaz Retro Windows 95**: Diseño nostálgico con ventanas clásicas, botones 3D y fondo teal
+- **PWA (Progressive Web App)**: Instalable en móviles y escritorio, funciona offline
+  - Service Worker con estrategia Cache First
+  - Manifiesto PWA configurado
+  - Iconos generados automáticamente (192x192 y 512x512)
+  - Soporte para iOS y Android
 - **Backend Python/Flask**: API RESTful robusta y escalable
 - **Base de Datos Neon**: PostgreSQL serverless con conexión SSL
 - **Despliegue en Vercel**: Configuración lista para production
@@ -275,7 +280,33 @@ Agrega nuevos endpoints en `app.py`.
 - **Estilos**: CSS personalizado Windows 95
 - **Base de Datos**: Neon PostgreSQL
 - **Deploy**: Vercel Serverless Functions
-- **Iconos**: SVG inline
+- **PWA**: Service Worker + Web App Manifest
+- **Iconos**: Generados con Pillow (PNG)
+
+## 📱 Instalación como PWA
+
+### En Android (Chrome):
+1. Abre la aplicación en Chrome
+2. Toca el menú (⋮) y selecciona "Instalar aplicación"
+3. O espera a que aparezca el banner de instalación
+4. La app se instalará como una app nativa
+
+### En iOS (Safari):
+1. Abre la aplicación en Safari
+2. Toca el botón Compartir (📤)
+3. Selecciona "Agregar a pantalla de inicio"
+4. La app aparecerá en tu pantalla de inicio
+
+### En Escritorio (Chrome/Edge):
+1. Abre la aplicación
+2. Verás un ícono de instalación en la barra de direcciones
+3. Haz clic en "Instalar"
+4. La app se abrirá en su propia ventana
+
+### Funcionalidades Offline:
+- ✅ La interfaz carga sin conexión
+- ✅ Los formularios pueden llenarse offline
+- ⚠️ El guardado requiere conexión (se sincroniza al reconectar)
 
 ## 📝 Notas
 
