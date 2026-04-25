@@ -1,0 +1,314 @@
+/* Windows 95 Style Theme */
+:root {
+    --win-gray: #c0c0c0;
+    --win-dark: #808080;
+    --win-darker: #404040;
+    --win-light: #ffffff;
+    --win-blue: #000080;
+    --win-text: #000000;
+    --win-disabled: #d4d4d4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    background-color: #008080; /* Classic teal desktop */
+    margin: 0;
+    padding: 20px;
+    color: var(--win-text);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Classic 3D Beveled Borders */
+.win-window {
+    background-color: var(--win-gray);
+    border-top: 2px solid var(--win-light);
+    border-left: 2px solid var(--win-light);
+    border-right: 2px solid var(--win-darker);
+    border-bottom: 2px solid var(--win-darker);
+    box-shadow: 1px 1px 0 var(--win-dark), -1px -1px 0 var(--win-light);
+    padding: 2px;
+    margin-bottom: 20px;
+}
+
+.win-title-bar {
+    background: linear-gradient(90deg, var(--win-blue), #1084d0);
+    color: white;
+    padding: 4px 8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.win-title-icon {
+    width: 16px;
+    height: 16px;
+    background: white;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    image-rendering: pixelated;
+}
+
+.win-content {
+    padding: 10px;
+}
+
+/* Inputs and Textareas */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    background-color: white;
+    border-top: 2px solid var(--win-darker);
+    border-left: 2px solid var(--win-darker);
+    border-right: 2px solid var(--win-light);
+    border-bottom: 2px solid var(--win-light);
+    padding: 4px 6px;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    outline: none;
+    box-shadow: 1px 1px 0 var(--win-dark);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+select:focus {
+    outline: 1px dotted var(--win-blue);
+}
+
+/* Classic Buttons */
+button, .win-btn {
+    background-color: var(--win-gray);
+    border-top: 2px solid var(--win-light);
+    border-left: 2px solid var(--win-light);
+    border-right: 2px solid var(--win-darker);
+    border-bottom: 2px solid var(--win-darker);
+    box-shadow: 1px 1px 0 var(--win-dark);
+    padding: 6px 16px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:active, .win-btn:active {
+    border-top: 2px solid var(--win-darker);
+    border-left: 2px solid var(--win-darker);
+    border-right: 2px solid var(--win-light);
+    border-bottom: 2px solid var(--win-light);
+    box-shadow: none;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    padding-left: 17px;
+    padding-right: 15px;
+}
+
+button:disabled, .win-btn:disabled {
+    color: var(--win-dark);
+    text-shadow: 1px 1px 0 white;
+    cursor: not-allowed;
+}
+
+/* Group Boxes */
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    padding: 0 4px;
+    font-weight: bold;
+}
+
+.win-group {
+    border-top: 2px solid var(--win-darker);
+    border-left: 2px solid var(--win-darker);
+    border-right: 2px solid var(--win-light);
+    border-bottom: 2px solid var(--win-light);
+    padding: 12px 10px 10px 10px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.win-group-label {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background-color: var(--win-gray);
+    padding: 0 4px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Checkboxes Radio */
+input[type="checkbox"], input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-top: 2px solid var(--win-darker);
+    border-left: 2px solid var(--win-darker);
+    border-right: 2px solid var(--win-light);
+    border-bottom: 2px solid var(--win-light);
+    box-shadow: 1px 1px 0 var(--win-dark);
+    vertical-align: middle;
+    margin-right: 6px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked::after {
+    content: 'X';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+/* Tabs */
+.win-tabs {
+    display: flex;
+    margin-bottom: 0;
+    padding-left: 4px;
+}
+
+.win-tab {
+    background-color: var(--win-gray);
+    border-top: 2px solid var(--win-light);
+    border-left: 2px solid var(--win-light);
+    border-right: 2px solid var(--win-darker);
+    border-bottom: 2px solid var(--win-gray);
+    padding: 6px 12px;
+    margin-right: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    top: 2px;
+    z-index: 1;
+}
+
+.win-tab.active {
+    background-color: var(--win-gray);
+    border-bottom: 2px solid var(--win-gray);
+    z-index: 2;
+    padding-bottom: 8px;
+    margin-bottom: -2px;
+}
+
+.win-tab-panel {
+    background-color: var(--win-gray);
+    border-top: 2px solid var(--win-darker);
+    border-left: 2px solid var(--win-darker);
+    border-right: 2px solid var(--win-light);
+    border-bottom: 2px solid var(--win-light);
+    padding: 16px;
+    display: none;
+}
+
+.win-tab-panel.active {
+    display: block;
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+.hidden { display: none; }
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+        color: black;
+    }
+    
+    .win-window {
+        border: 2px solid black;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+    
+    .win-title-bar {
+        background: none;
+        color: black;
+        border-bottom: 2px solid black;
+        font-weight: bold;
+    }
+    
+    button, .win-btn, .no-print {
+        display: none !important;
+    }
+    
+    input, textarea, select {
+        border: 1px solid #999;
+        box-shadow: none;
+        background: white;
+    }
+    
+    .win-group {
+        border: 2px solid #999;
+    }
+}

@@ -1,0 +1,105 @@
+{
+  "project_name": "PRCC Digital - Windows 95 Edition",
+  "version": "1.0.0",
+  "architecture": {
+    "type": "Serverless Flask on Vercel",
+    "frontend": "Vanilla JS + HTML5 + CSS3 (No Frameworks)",
+    "backend": "Python 3.9+ (Flask)",
+    "database": "PostgreSQL (Neon Serverless)",
+    "styling": "Custom CSS (Windows 95 Aesthetic)"
+  },
+  "tech_stack": {
+    "core": [
+      "Flask>=3.0.0",
+      "psycopg2-binary",
+      "python-dotenv",
+      "gunicorn"
+    ],
+    "infrastructure": [
+      "Vercel CLI",
+      "Neon Database",
+      "GitHub Actions (Optional)"
+    ]
+  },
+  "file_structure": {
+    "root": [
+      "app.py",
+      "vercel.json",
+      "requirements.txt",
+      ".env.example",
+      "skills.json",
+      "skills.md"
+    ],
+    "static": {
+      "css": ["styles.css"],
+      "js": ["app.js"]
+    },
+    "templates": ["index.html"]
+  },
+  "coding_standards": {
+    "python": {
+      "style": "PEP 8",
+      "typing": "Strict Type Hinting encouraged",
+      "error_handling": "Try-Except blocks with specific logging",
+      "db_connection": "Singleton pattern or connection pooling via Neon"
+    },
+    "javascript": {
+      "standard": "ES6+ (const/let, arrow functions, modules if needed)",
+      "dom_manipulation": "Vanilla JS only (no jQuery, no frameworks)",
+      "state_management": "Simple object-based state or localStorage for persistence"
+    },
+    "css": {
+      "methodology": "BEM or Utility-first custom classes",
+      "variables": "CSS Custom Properties (--var) for theming",
+      "responsiveness": "Mobile-first media queries"
+    }
+  },
+  "deployment_config": {
+    "platform": "Vercel",
+    "runtime": "python3.9",
+    "entry_point": "app.py",
+    "build_command": "pip install -r requirements.txt",
+    "env_variables": [
+      "DATABASE_URL",
+      "FLASK_ENV",
+      "SECRET_KEY"
+    ],
+    "serverless_functions": {
+      "max_duration": 10,
+      "memory": 1024
+    }
+  },
+  "database_schema_guidelines": {
+    "orm": "Raw SQL or lightweight wrapper (avoid heavy ORMs for serverless)",
+    "migrations": "Manual SQL scripts or Alembic if complex",
+    "connection_string": "Use neon.tech serverless driver compatible string",
+    "ssl_mode": "require"
+  },
+  "security": {
+    "cors": "Restrict to allowed origins",
+    "headers": "Security headers (X-Frame-Options, CSP)",
+    "secrets": "Never commit .env, use Vercel Environment Variables",
+    "input_validation": "Sanitize all inputs in Flask routes"
+  },
+  "performance": {
+    "assets": "Minify CSS/JS for production",
+    "caching": "Cache static assets via Vercel headers",
+    "db_queries": "Use prepared statements, index frequently queried columns"
+  },
+  "ui_ux_themes": {
+    "current": "Windows 95 Retro",
+    "principles": [
+      "High contrast",
+      "Clear visual hierarchy",
+      "Immediate feedback on interactions",
+      "Print-optimized layouts"
+    ]
+  },
+  "checklist_before_deploy": [
+    "Verify DATABASE_URL is set in Vercel",
+    "Test local build with 'vercel dev'",
+    "Ensure requirements.txt is up to date",
+    "Check CORS settings for production domain",
+    "Validate JSON responses from API endpoints"
+  ]
+}
