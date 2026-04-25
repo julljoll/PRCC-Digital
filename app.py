@@ -254,7 +254,8 @@ def health_check():
 # Handler para Vercel
 def handler(request):
     """Handler para Vercel Serverless Functions"""
-    return app(request.environ, lambda *args: None)
+    from vercel_flask import serve_wsgi_app
+    return serve_wsgi_app(app, request.environ)
 
 if __name__ == '__main__':
     # Crear carpetas necesarias
