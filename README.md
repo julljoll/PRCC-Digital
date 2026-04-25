@@ -1,147 +1,109 @@
-# PRCC Digital - Versión 2.0
+# PRCC Digital - Versión 2.0 (Ubuntu .deb)
 
-**Planilla de Registro de Cadena de Custodia** - Aplicación web con interfaz Windows 95, optimizada para Vercel y Neon Database.
+**Planilla de Registro de Cadena de Custodia** - Aplicación de escritorio para Ubuntu, con interfaz Windows 95 y base de datos local SQLite.
 
 ## 🔬 Descripción
 
-Sistema digital para el registro y seguimiento de la cadena de custodia de evidencias forenses, desarrollado en Python con Flask, con diseño retro de Windows 95 y base de datos PostgreSQL serverless.
+Sistema digital para el registro y seguimiento de la cadena de custodia de evidencias forenses, desarrollado en Python con Flask. Esta versión está diseñada para distribuirse como paquete `.deb` para Ubuntu 26.04+, funcionando completamente offline sin dependencias de servicios en la nube.
 
 ## 🚀 Características
 
+- **Aplicación de Escritorio Nativa**: Diseñada para Ubuntu 26.04+ como paquete `.deb`
 - **Interfaz Retro Windows 95**: Diseño nostálgico con ventanas clásicas, botones 3D y fondo teal
-- **PWA (Progressive Web App)**: Instalable en móviles y escritorio, funciona offline
-  - Service Worker con estrategia Cache First
-  - Manifiesto PWA configurado
-  - Iconos generados automáticamente (192x192 y 512x512)
-  - Soporte para iOS y Android
-- **Backend Python/Flask**: API RESTful robusta y escalable
-- **Base de Datos Neon**: PostgreSQL serverless con conexión SSL
-- **Despliegue en Vercel**: Configuración lista para production
+- **Base de Datos Local SQLite**: No requiere conexión a internet ni servicios externos
+- **Funcionamiento Offline Completo**: Todos los datos se almacenan localmente
 - **Formulario Completo**: Todas las secciones del PRCC oficial
 - **Exportación JSON**: Descarga de registros en formato JSON
 - **Optimizado para Impresión**: Vista específica para imprimir documentos legales
+- **Fácil Instalación**: Paquete `.deb` listo para instalar con `dpkg` o `apt`
 
 ## 📋 Requisitos
 
+- Ubuntu 26.04 LTS o superior (también compatible con 24.04, 22.04)
 - Python 3.11+
-- Cuenta en [Neon](https://neon.tech) para base de datos
-- Cuenta en [Vercel](https://vercel.com) para despliegue (opcional para local)
+- Permisos de administrador para instalación (sudo)
 
-## 🛠️ Instalación Local
+## 🛠️ Instalación desde Paquete .deb
 
-### 1. Clonar el repositorio
+### Método 1: Usando dpkg
+
 ```bash
+# Descargar el paquete .deb
+wget https://github.com/tu-usuario/prcc-digital/releases/download/v2.0.0/prcc-digital_2.0.0_amd64.deb
+
+# Instalar el paquete
+sudo dpkg -i prcc-digital_2.0.0_amd64.deb
+
+# Si hay dependencias faltantes
+sudo apt-get install -f
+```
+
+### Método 2: Usando apt
+
+```bash
+# Instalar directamente (maneja dependencias automáticamente)
+sudo apt install ./prcc-digital_2.0.0_amd64.deb
+```
+
+### Método 3: Compilar desde código fuente
+
+```bash
+# Clonar el repositorio
 git clone <tu-repositorio>
 cd prcc-digital
-```
 
-### 2. Crear entorno virtual (recomendado)
-```bash
-python -m venv .venv
-source .venv/bin/activate  # En Windows: .venv\Scripts\activate
-```
+# Crear entorno virtual
+python3 -m venv .venv
+source .venv/bin/activate
 
-### 3. Instalar dependencias
-```bash
+# Instalar dependencias
 pip install -r requirements.txt
-```
 
-### 4. Configurar variables de entorno
-```bash
-cp .env.example .env
-```
-
-Editar `.env` con tus credenciales:
-```env
-SECRET_KEY=tu-clave-secreta-muy-segura-2024
-DATABASE_URL=postgresql://usuario:password@ep-xxx.region.aws.neon.tech/prcc_db?sslmode=require
-DEBUG=True
-```
-
-### 5. Obtener DATABASE_URL de Neon
-1. Ve a [console.neon.tech](https://console.neon.tech)
-2. Crea un nuevo proyecto
-3. Copia la cadena de conexión (Connection String)
-4. Pégala en `DATABASE_URL` en tu archivo `.env`
-
-### 6. Ejecutar la aplicación
-```bash
+# Ejecutar la aplicación
 python app.py
 ```
 
-La aplicación estará disponible en: http://localhost:5000
+## 🎯 Uso de la Aplicación
 
-## 🌐 Despliegue en Vercel
+### Iniciar la aplicación
 
-### Pre-requisitos importantes
+Una vez instalada, puedes iniciar PRCC Digital de varias formas:
 
-⚠️ **Nota sobre el archivo `builds`**: Si usas la configuración con `builds` en `vercel.json`, algunas configuraciones automáticas de Vercel no se aplicarán. Esta configuración es necesaria para usar `vercel-flask`.
-
-### Opción 1: Desde la CLI de Vercel
-
+**Desde la terminal:**
 ```bash
-# Instalar Vercel CLI
-npm install -g vercel
-
-# Iniciar sesión
-vercel login
-
-# Desplegar
-vercel
+prcc-digital
 ```
 
-Durante el despliegue, Vercel te preguntará por las variables de entorno. Asegúrate de configurar:
-- `SECRET_KEY`
-- `DATABASE_URL`
+**Desde el menú de aplicaciones:**
+1. Abre el menú de aplicaciones de Ubuntu
+2. Busca "PRCC Digital"
+3. Haz clic en el ícono
 
-### Opción 2: Desde GitHub
+**Acceso directo:**
+La aplicación estará disponible en:
+- Menú de aplicaciones → Categoría: Oficina/Utilidades
+- Lanzador de Ubuntu (Dash)
 
-1. Sube tu código a GitHub
-2. Ve a [vercel.com/new](https://vercel.com/new)
-3. Importa tu repositorio
-4. **Configura las variables de entorno ANTES de desplegar**:
-   - `SECRET_KEY`: Tu clave secreta (genera una única, ej: `openssl rand -hex 32`)
-   - `DATABASE_URL`: Tu conexión a Neon (ej: `postgresql://user:pass@ep-xxx.us-east-2.aws.neon.tech/db?sslmode=require`)
-5. Haz clic en "Deploy"
+### Primer uso
 
-### Configurar Variables de Entorno en Vercel
+1. Al iniciar, la aplicación creará automáticamente la base de datos local en `~/.local/share/prcc-digital/prcc.db`
+2. La interfaz se abrirá en tu navegador predeterminado en `http://localhost:5000`
+3. ¡Listo! Puedes comenzar a crear registros
 
-En el dashboard de Vercel:
-1. Ve a tu proyecto
-2. Settings → Environment Variables
-3. Agrega las siguientes variables para **Production**, **Preview**, y **Development**:
-   - `SECRET_KEY` (requerido)
-   - `DATABASE_URL` (requerido)
-4. Guarda los cambios
+## 📁 Ubicación de Datos
 
-### Verificar el despliegue
+Los datos se almacenan localmente en:
 
-Después del despliegue:
-1. Revisa los logs: `vercel --logs`
-2. Verifica el health check: `https://tu-app.vercel.app/api/health`
-3. Confirma que la base de datos esté conectada
-
-### Solución de problemas comunes
-
-**Error: `vercel-wsgi-adapter no se encontró`**
-- ✅ Solucionado: Ahora usamos `vercel-flask==0.0.4`
-
-**Error de conexión a la base de datos**
-- Verifica que `DATABASE_URL` incluya `?sslmode=require`
-- Confirma que tu IP esté permitida en Neon (para local)
-- En Vercel, las IPs son automáticas
-
-**Build falla en Vercel**
-- Revisa que `.python-version` esté presente (usamos Python 3.11)
-- Verifica que `requirements.txt` tenga todas las dependencias
-- Revisa los logs con `vercel --logs`
+- **Base de datos**: `~/.local/share/prcc-digital/prcc.db`
+- **Configuración**: `~/.config/prcc-digital/config.json`
+- **Registros exportados**: `~/Documentos/PRCC-Exports/`
 
 ## 🗄️ Estructura de la Base de Datos
 
-La aplicación crea automáticamente la siguiente tabla en Neon:
+La aplicación crea automáticamente una base de datos SQLite local:
 
 ```sql
-CREATE TABLE registros (
+CREATE TABLE IF NOT EXISTS registros (
     id VARCHAR(50) PRIMARY KEY,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     datos_generales JSONB,
@@ -161,7 +123,7 @@ CREATE TABLE registros (
 | GET | `/api/registro/<id>` | Obtener registro específico |
 | GET | `/api/registros` | Listar todos los registros |
 | GET | `/api/exportar/<id>` | Exportar registro como JSON |
-| GET | `/api/health` | Verificar estado de la app y DB |
+| GET | `/api/health` | Verificar estado de la app |
 | GET | `/api/imprimir` | Vista para impresión |
 
 ## 🧪 Pruebas Locales
@@ -183,23 +145,32 @@ curl -X POST http://localhost:5000/api/registro \
   }'
 ```
 
-## 📁 Estructura del Proyecto
+## 📦 Crear Paquete .deb
 
-```
+Para desarrolladores que quieran compilar su propio paquete:
+
+```bash
+# Estructura requerida
 prcc-digital/
-├── app.py                 # Backend Flask + integración Neon
-├── requirements.txt       # Dependencias Python
-├── vercel.json           # Configuración para Vercel
-├── .env.example          # Plantilla de variables de entorno
-├── .gitignore            # Archivos ignorados por Git
-├── README.md             # Este archivo
-├── templates/
-│   └── index.html        # Frontend HTML con estilo Windows 95
-└── static/
-    ├── css/
-    │   └── styles.css    # Estilos Windows 95
-    └── js/
-        └── app.js        # Lógica frontend
+├── debian/
+│   ├── control
+│   ├── rules
+│   ├── compat
+│   └── prcc-digital.desktop
+├── usr/
+│   ├── bin/
+│   │   └── prcc-digital
+│   └── share/
+│       ├── prcc-digital/
+│       │   ├── app.py
+│       │   ├── templates/
+│       │   └── static/
+│       └── applications/
+│           └── prcc-digital.desktop
+└── README.md
+
+# Compilar el paquete
+dpkg-deb --build prcc-digital
 ```
 
 ## 📋 Funcionalidades del Formulario
@@ -238,12 +209,22 @@ Motivos seleccionables:
 - Disposición Judicial
 - Disposición Final
 
-## 🔒 Seguridad
+## 🔒 Seguridad y Privacidad
 
-- **SECRET_KEY**: Cambia la clave por defecto en producción
-- **DATABASE_URL**: Usa siempre conexiones SSL (`sslmode=require`)
-- **.env**: Nunca subas este archivo a Git
-- **CORS**: Configura CORS si necesitas acceso desde otros dominios
+- **Datos 100% Locales**: Toda la información se almacena en tu computadora
+- **Sin Conexión Requerida**: No envía datos a servidores externos
+- **Control Total**: Tú eres el único dueño de tus datos
+- **Copia de Seguridad**: Recomendamos hacer backups periódicos de `~/.local/share/prcc-digital/`
+
+### Realizar Copia de Seguridad
+
+```bash
+# Crear backup de la base de datos
+cp ~/.local/share/prcc-digital/prcc.db ~/Documentos/prcc-backup-$(date +%Y%m%d).db
+
+# O comprimir todo el directorio
+tar -czvf prcc-backup-$(date +%Y%m%d).tar.gz ~/.local/share/prcc-digital/
+```
 
 ## 🎨 Personalización
 
@@ -258,81 +239,88 @@ Agrega nuevos endpoints en `app.py`.
 
 ## 🐛 Solución de Problemas
 
-### Error de conexión a la base de datos
-- Verifica que `DATABASE_URL` sea correcto
-- Asegúrate de que tu IP esté permitida en Neon
-- Confirma que `sslmode=require` esté incluido
+### La aplicación no inicia
+```bash
+# Verificar si el puerto está en uso
+sudo lsof -i :5000
 
-### Error en Vercel
-- Revisa los logs en el dashboard de Vercel
-- Verifica que las variables de entorno estén configuradas
-- Ejecuta `vercel --logs` para ver logs en tiempo real
+# Reinstalar la aplicación
+sudo apt reinstall prcc-digital
+```
 
-### La aplicación no inicia localmente
-- Ejecuta `pip install -r requirements.txt` nuevamente
-- Verifica que Python 3.11+ esté instalado
-- Revisa que el puerto 5000 no esté en uso
+### Error en la base de datos
+```bash
+# Eliminar base de datos corrupta y reiniciar
+rm ~/.local/share/prcc-digital/prcc.db
+prcc-digital
+```
+
+### Desinstalar completamente
+```bash
+sudo apt remove prcc-digital
+sudo rm -rf ~/.local/share/prcc-digital
+sudo rm -rf ~/.config/prcc-digital
+```
 
 ## 🛠️ Tecnologías
 
 - **Backend**: Python 3.x + Flask
 - **Frontend**: HTML5 + CSS3 + JavaScript (Vanilla)
 - **Estilos**: CSS personalizado Windows 95
-- **Base de Datos**: Neon PostgreSQL
-- **Deploy**: Vercel Serverless Functions
+- **Base de Datos**: SQLite (local, sin servidor)
+- **Empaquetado**: Debian package (.deb)
 - **PWA**: Service Worker + Web App Manifest
-- **Iconos**: Generados con Pillow (PNG)
+- **Iconos**: PNG optimizados para escritorio Linux
 
-## 📱 Instalación como PWA
-
-### En Android (Chrome):
-1. Abre la aplicación en Chrome
-2. Toca el menú (⋮) y selecciona "Instalar aplicación"
-3. O espera a que aparezca el banner de instalación
-4. La app se instalará como una app nativa
-
-### En iOS (Safari):
-1. Abre la aplicación en Safari
-2. Toca el botón Compartir (📤)
-3. Selecciona "Agregar a pantalla de inicio"
-4. La app aparecerá en tu pantalla de inicio
-
-### En Escritorio (Chrome/Edge):
-1. Abre la aplicación
-2. Verás un ícono de instalación en la barra de direcciones
-3. Haz clic en "Instalar"
-4. La app se abrirá en su propia ventana
-
-### Funcionalidades Offline:
-- ✅ La interfaz carga sin conexión
-- ✅ Los formularios pueden llenarse offline
-- ⚠️ El guardado requiere conexión (se sincroniza al reconectar)
-
-## 📝 Notas
+## 📝 Notas Importantes
 
 - La planilla debe permanecer siempre con la evidencia
 - Solo el original es válido desde el llenado hasta la disposición final
 - Optimizado para impresión en papel tamaño legal
 - Interfaz Windows 95 para nostalgia y usabilidad retro
+- **No requiere conexión a internet para funcionar**
 
-## 🔐 Consideraciones de Seguridad para Producción
+## 📋 Licencia
 
-1. Cambiar `SECRET_KEY` en variables de entorno
-2. Usar Neon Database con SSL obligatorio
-3. Implementar autenticación de usuarios
-4. Habilitar HTTPS (automático en Vercel)
-5. Configurar logs de auditoría
-6. Rotar claves periódicamente
+Este software está licenciado bajo la **Licencia de Construcción Comunitaria - No Comercial**.
+
+✅ **PUEDES**:
+- Usar libremente para trabajo, estudios e investigación
+- Modificar el código para uso personal
+- Distribuir copias gratuitas
+- Empaquetar y redistribuir en formatos .deb
+
+❌ **NO PUEDES**:
+- Vender este software o sus derivados
+- Cobrar por licencias de uso
+- Incluir en productos comerciales sin autorización
+
+Ver archivo `LICENSE` para detalles completos.
 
 ## 🔗 Enlaces Útiles
 
 - [Documentación de Flask](https://flask.palletsprojects.com/)
-- [Documentación de Neon](https://neon.tech/docs/)
-- [Documentación de Vercel](https://vercel.com/docs)
-- [psycopg2 Documentation](https://www.psycopg.org/docs/)
+- [SQLite Documentation](https://www.sqlite.org/docs.html)
+- [Ubuntu Packaging Guide](https://packaging.ubuntu.com/html/)
+- [Debian Developer's Reference](https://www.debian.org/doc/manuals/developers-reference/)
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+1. Fork el repositorio
+2. Crea una rama para tu feature
+3. Envía un Pull Request
+
+## 📞 Soporte
+
+Para reportar errores o solicitar características:
+- GitHub Issues: [tu-repositorio]/issues
+- Email: soporte@sha256.us
 
 ---
 
-**Desarrollado con ❤️ usando Python, Flask, Neon y Vercel**
+**Desarrollado con ❤️ para Ubuntu y la comunidad forense**
 
 **sha256.us** - Laboratorio Informático Forense
+
+*Versión 2.0 - Paquete nativo para Ubuntu 26.04+*
