@@ -1,0 +1,8 @@
+#!/bin/bash
+# Usar el entorno virtual creado en postinst
+if [ -f /usr/share/forense-android/venv/bin/activate ]; then
+    source /usr/share/forense-android/venv/bin/activate
+fi
+cd /usr/share/forense-android
+export PYTHONPATH=/usr/share/forense-android:$PYTHONPATH
+python3 main.py "$@"

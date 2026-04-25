@@ -1,0 +1,15 @@
+#!/bin/bash
+# Script pre-desinstalación para forense-android
+
+set -e
+
+echo "Preparando desinstalación de Sistema Forense Android..."
+
+# Detener cualquier instancia en ejecución (opcional)
+# pkill -f forense-android || true
+
+echo "✅ Sistema Forense Android desinstalado."
+echo ""
+echo "Nota: Los datos de los casos en ~/.local/share/forense-android/ no han sido eliminados."
+echo "Para eliminarlos completamente, ejecute:"
+echo "  rm -rf ~/.local/share/forense-android"
