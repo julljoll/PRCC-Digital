@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRCC Digital - Windows 95 Edition</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#008080">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PRCC Win95">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-192.png') }}">
 </head>
 <body>
     <div id="app" class="flex flex-col items-center gap-6">
@@ -121,5 +127,48 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    
+    <!-- Service Worker para PWA -->
+    <script>
+        // Registro del Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}")
+                    .then((registration) => {
+                        console.log('Service Worker registrado con éxito:', registration.scope);
+                        
+                        // Verificar actualizaciones
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Hay una nueva versión disponible
+                                    if (confirm('¡Nueva versión disponible! ¿Recargar para actualizar?')) {
+                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+
+        // Manejo de instalación en dispositivos móviles
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            console.log('Evento beforeinstallprompt disparado - PWA instalable');
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('Aplicación instalada exitosamente como PWA');
+            deferredPrompt = null;
+        });
+    </script>
 </body>
 </html>
