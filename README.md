@@ -30,12 +30,18 @@ git clone <tu-repositorio>
 cd prcc-digital
 ```
 
-### 2. Instalar dependencias
+### 2. Crear entorno virtual (recomendado)
+```bash
+python -m venv .venv
+source .venv/bin/activate  # En Windows: .venv\Scripts\activate
+```
+
+### 3. Instalar dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configurar variables de entorno
+### 4. Configurar variables de entorno
 ```bash
 cp .env.example .env
 ```
@@ -47,13 +53,13 @@ DATABASE_URL=postgresql://usuario:password@ep-xxx.region.aws.neon.tech/prcc_db?s
 DEBUG=True
 ```
 
-### 4. Obtener DATABASE_URL de Neon
+### 5. Obtener DATABASE_URL de Neon
 1. Ve a [console.neon.tech](https://console.neon.tech)
 2. Crea un nuevo proyecto
 3. Copia la cadena de conexión (Connection String)
 4. Pégala en `DATABASE_URL` en tu archivo `.env`
 
-### 5. Ejecutar la aplicación
+### 6. Ejecutar la aplicación
 ```bash
 python app.py
 ```
@@ -61,6 +67,10 @@ python app.py
 La aplicación estará disponible en: http://localhost:5000
 
 ## 🌐 Despliegue en Vercel
+
+### Pre-requisitos importantes
+
+⚠️ **Nota sobre el archivo `builds`**: Si usas la configuración con `builds` en `vercel.json`, algunas configuraciones automáticas de Vercel no se aplicarán. Esta configuración es necesaria para usar `vercel-flask`.
 
 ### Opción 1: Desde la CLI de Vercel
 
@@ -75,14 +85,18 @@ vercel login
 vercel
 ```
 
+Durante el despliegue, Vercel te preguntará por las variables de entorno. Asegúrate de configurar:
+- `SECRET_KEY`
+- `DATABASE_URL`
+
 ### Opción 2: Desde GitHub
 
 1. Sube tu código a GitHub
 2. Ve a [vercel.com/new](https://vercel.com/new)
 3. Importa tu repositorio
-4. Configura las variables de entorno:
-   - `SECRET_KEY`: Tu clave secreta
-   - `DATABASE_URL`: Tu conexión a Neon
+4. **Configura las variables de entorno ANTES de desplegar**:
+   - `SECRET_KEY`: Tu clave secreta (genera una única, ej: `openssl rand -hex 32`)
+   - `DATABASE_URL`: Tu conexión a Neon (ej: `postgresql://user:pass@ep-xxx.us-east-2.aws.neon.tech/db?sslmode=require`)
 5. Haz clic en "Deploy"
 
 ### Configurar Variables de Entorno en Vercel
@@ -90,9 +104,32 @@ vercel
 En el dashboard de Vercel:
 1. Ve a tu proyecto
 2. Settings → Environment Variables
-3. Agrega:
-   - `SECRET_KEY` (Production, Preview, Development)
-   - `DATABASE_URL` (Production, Preview, Development)
+3. Agrega las siguientes variables para **Production**, **Preview**, y **Development**:
+   - `SECRET_KEY` (requerido)
+   - `DATABASE_URL` (requerido)
+4. Guarda los cambios
+
+### Verificar el despliegue
+
+Después del despliegue:
+1. Revisa los logs: `vercel --logs`
+2. Verifica el health check: `https://tu-app.vercel.app/api/health`
+3. Confirma que la base de datos esté conectada
+
+### Solución de problemas comunes
+
+**Error: `vercel-wsgi-adapter no se encontró`**
+- ✅ Solucionado: Ahora usamos `vercel-flask==0.0.4`
+
+**Error de conexión a la base de datos**
+- Verifica que `DATABASE_URL` incluya `?sslmode=require`
+- Confirma que tu IP esté permitida en Neon (para local)
+- En Vercel, las IPs son automáticas
+
+**Build falla en Vercel**
+- Revisa que `.python-version` esté presente (usamos Python 3.11)
+- Verifica que `requirements.txt` tenga todas las dependencias
+- Revisa los logs con `vercel --logs`
 
 ## 🗄️ Estructura de la Base de Datos
 
